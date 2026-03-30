@@ -146,21 +146,21 @@ ProgPoW can be tuned using the following parameters.  The proposed settings have
 The value of these parameters has been tweaked between version 0.9.2 (live on the Gangnam testnet) and 0.9.3 (proposed for [Ethereum adoption](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1057.md)).  See [this medium post](https://medium.com/@ifdefelse/progpow-progress-da5bb31a651b) for details.
 Release 0.9.4 keeps the same tunables of 0.9.3 and includes the tweak for DAG generation.
 
-| Parameter             | 0.9.2 | 0.9.3 | 0.9.4 |
-|-----------------------|-------|-------|-------|
-| `PROGPOW_PERIOD`      | `50`  | `10`  |  `10` |
-| `PROGPOW_LANES`       | `16`  | `16`  |  `16` |
-| `PROGPOW_REGS`        | `32`  | `32`  |  `32` |
-| `PROGPOW_DAG_LOADS`   | `4`   | `4`   |  `4`  |
-| `PROGPOW_CACHE_BYTES` | `16x1024` | `16x1024` | `16x1024` |
-| `PROGPOW_CNT_DAG`     | `64`  | `64`  | `64`  |
-| `PROGPOW_CNT_CACHE`   | `12`  | `11`  | `11`  |
-| `PROGPOW_CNT_MATH`    | `20`  | `18`  | `18`  |
+| Parameter             | 0.9.2 | 0.9.3 | 0.9.4 | 0.9.4 (KawPow) |
+|-----------------------|-------|-------|-------|----------------|
+| `PROGPOW_PERIOD`      | `50`  | `10`  |  `10` |      `3`       |
+| `PROGPOW_LANES`       | `16`  | `16`  |  `16` |      `16`      |
+| `PROGPOW_REGS`        | `32`  | `32`  |  `32` |      `32`      |
+| `PROGPOW_DAG_LOADS`   | `4`   | `4`   |  `4`  |      `4`       |
+| `PROGPOW_CACHE_BYTES` | `16x1024` | `16x1024` | `16x1024` | `16x1024` |
+| `PROGPOW_CNT_DAG`     | `64`  | `64`  | `64`  |      `64`      |
+| `PROGPOW_CNT_CACHE`   | `12`  | `11`  | `11`  |      `11`      |
+| `PROGPOW_CNT_MATH`    | `20`  | `18`  | `18`  |      `18`      |
 
-| DAG Parameter            | 0.9.2 | 0.9.3 | 0.9.4 |
-|--------------------------|-------|-------|-------|
-| `ETHASH_DATASET_PARENTS` | `256` | `256` | `512` |
-
+| DAG Parameter            | 0.9.2 | 0.9.3 | 0.9.4 | 0.9.4 (KawPow) |
+|--------------------------|-------|-------|-------|----------------|
+| `ETHASH_DATASET_PARENTS` | `256` | `256` | `512` |    `512`       |
+| `ETHASH_EPOCH_LENGTH`    | `30000` | `30000` | `30000` | `7500`    |
 
 The random program changes every `PROGPOW_PERIOD` blocks (default `10`, roughly 2 minutes) to ensure the hardware executing the algorithm is fully programmable.  If the program only changed every DAG epoch (roughly 5 days) certain miners could have time to develop hand-optimized versions of the random sequence, giving them an undue advantage.
 
